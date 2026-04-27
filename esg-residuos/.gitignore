@@ -1,0 +1,43 @@
+# ===========================
+# Credenciais e ambiente
+# ===========================
+.env
+*.env
+.env.*
+!.env.example
+
+# ===========================
+# Maven
+# ===========================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ===========================
+# IntelliJ IDEA
+# ===========================
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# ===========================
+# Spring Boot
+# ===========================
+*.log
+logs/
+spring.log
+
+# ===========================
+# Sistema Operacional
+# ===========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===========================
+# Docker
+# ===========================
+docker-compose.override.yml
