@@ -28,5 +28,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
+      - name: Permissao mvnw
+        run: chmod +x mvnw
+
       - name: Build
         run: ./mvnw package -DskipTests
