@@ -1,5 +1,11 @@
 # ESG Resíduos API
 
+![CI](https://github.com/lenonmerlo/esg-residuos/actions/workflows/ci.yml/badge.svg)
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.6-green)
+![Docker](https://img.shields.io/badge/Docker-ready-blue)
+
+
 API RESTful para gerenciamento de resíduos sólidos, pontos de coleta, coletas e destinações — desenvolvida com **Spring Boot** como atividade prática da disciplina de Microsserviços (Cap. 8) da FIAP ADS.
 
 ---
