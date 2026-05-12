@@ -5,7 +5,6 @@
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.6-green)
 ![Docker](https://img.shields.io/badge/Docker-ready-blue)
 
-
 API RESTful para gerenciamento de resíduos sólidos, pontos de coleta, coletas e destinações — desenvolvida com **Spring Boot** como atividade prática da disciplina de Microsserviços (Cap. 8) da FIAP ADS.
 
 ---
@@ -382,12 +381,12 @@ Para testar endpoints protegidos via Swagger UI, clique em **Authorize** e infor
 
 O `docker-compose.yml` já traz valores default para todas as variáveis. Basta rodar `docker compose up --build`.
 
-| Variável          | Default         | Descrição                        |
-| ----------------- | --------------- | -------------------------------- |
-| `ORACLE_PASSWORD` | `OraclePass123` | Senha do Oracle no container     |
-| `DB_URL`          | automático      | Injetado pelo Compose            |
-| `DB_USER`         | `SYSTEM`        | Usuário do Oracle                |
-| `DB_PASS`         | automático      | Igual ao `ORACLE_PASSWORD`       |
+| Variável          | Default         | Descrição                    |
+| ----------------- | --------------- | ---------------------------- |
+| `ORACLE_PASSWORD` | `OraclePass123` | Senha do Oracle no container |
+| `DB_URL`          | automático      | Injetado pelo Compose        |
+| `DB_USER`         | `SYSTEM`        | Usuário do Oracle            |
+| `DB_PASS`         | automático      | Igual ao `ORACLE_PASSWORD`   |
 
 ### Execução local via Maven
 
@@ -449,16 +448,16 @@ cd esg-residuos
 
 ```powershell
 $env:DB_URL="jdbc:oracle:thin:@oracle.fiap.com.br:1521/ORCL"
-$env:DB_USER="RM564471"
-$env:DB_PASS="sua_senha"
+$env:DB_USER="SEU_RM"
+$env:DB_PASS="SUA_SENHA"
 ```
 
 **Linux/Mac:**
 
 ```bash
 export DB_URL=jdbc:oracle:thin:@oracle.fiap.com.br:1521/ORCL
-export DB_USER=RM564471
-export DB_PASS=sua_senha
+export DB_USER=SEU_RM
+export DB_PASS=SUA_SENHA
 ```
 
 3. Execute a aplicação:
