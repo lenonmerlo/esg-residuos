@@ -378,27 +378,32 @@ Para testar endpoints protegidos via Swagger UI, clique em **Authorize** e infor
 
 ## Configuração de Ambiente
 
-A aplicação requer as seguintes variáveis de ambiente para conexão com o banco Oracle:
+### Docker Compose (sem configuração extra)
 
-| Variável  | Descrição          | Exemplo                                |
-| --------- | ------------------ | -------------------------------------- |
-| `DB_URL`  | URL JDBC do Oracle | `jdbc:oracle:thin:@//host:1521/XEPDB1` |
-| `DB_USER` | Usuário do banco   | `esg_user`                             |
-| `DB_PASS` | Senha do banco     | `esg_pass`                             |
+O `docker-compose.yml` já traz valores default para todas as variáveis. Basta rodar `docker compose up --build`.
 
-### Exemplo de arquivo `.env`
+| Variável          | Default         | Descrição                        |
+| ----------------- | --------------- | -------------------------------- |
+| `ORACLE_PASSWORD` | `OraclePass123` | Senha do Oracle no container     |
+| `DB_URL`          | automático      | Injetado pelo Compose            |
+| `DB_USER`         | `SYSTEM`        | Usuário do Oracle                |
+| `DB_PASS`         | automático      | Igual ao `ORACLE_PASSWORD`       |
+
+### Execução local via Maven
+
+Copie `.env.example` para `.env` e preencha com suas credenciais:
 
 ```env
-DB_URL=jdbc:oracle:thin:@//localhost:1521/XEPDB1
-DB_USER=esg_user
-DB_PASS=esg_pass
+spring.datasource.url=jdbc:oracle:thin:@oracle.fiap.com.br:1521/ORCL
+spring.datasource.username=SEU_RM
+spring.datasource.password=SUA_SENHA
 ```
 
 ---
 
 ## Executando com Docker
 
-O projeto inclui `Dockerfile` e `docker-compose.yml` para facilitar a execução em container.
+O projeto inclui `Dockerfile` e `docker-compose.yml` com Oracle + API prontos para subir juntos — nenhuma configuração externa necessária.
 
 ### Pré-requisitos
 
@@ -408,15 +413,15 @@ O projeto inclui `Dockerfile` e `docker-compose.yml` para facilitar a execução
 ### Subindo a aplicação
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
-A aplicação ficará disponível em `http://localhost:8080`.
+A API aguarda o Oracle ficar healthy antes de iniciar. Na primeira execução, o Oracle pode levar alguns minutos. A aplicação ficará disponível em `http://localhost:8080`.
 
 ### Parando os containers
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ---
@@ -535,6 +540,7 @@ esg-residuos/
 │   └── test/
 │       └── java/br/com/fiap/esg_residuos/
 │           └── EsgResiduosApplicationTests.java
+├── .env.example
 ├── Dockerfile
 ├── docker-compose.yml
 ├── pom.xml
